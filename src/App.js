@@ -1,24 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
+import SearchForm from './components/searchForm';
+import Result from './components/Result';
+import { useState } from 'react';
+import Error from './components/Error'
 
 function App() {
+  const [wordInfo, setWordInfo] = useState(null)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <SearchForm setWordInfo={setWordInfo}/>
+    {/* {wordInfo && (<Result wordInfo={wordInfo}/>)} */}
+    {!wordInfo ? "" : wordInfo.title ? (<Error/>) :(<Result meanings={wordInfo[0].meanings} word={wordInfo[0].word}/>) }
+    </>
   );
 }
 
