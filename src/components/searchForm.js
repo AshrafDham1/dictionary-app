@@ -1,5 +1,5 @@
 import React from 'react'
-import { useEffect, useState } from 'react'
+import {  useState } from 'react'
 
 function SearchForm(props) {
   const [word, setWord] = useState('')
@@ -12,10 +12,13 @@ function SearchForm(props) {
   }
   return (
     <form onSubmit={fetchWord}>
-        <input type="text" placeholder="Search" onChange={(e)=>{
+         <div class="search">
+
+        <input type="text" placeholder="Search a word" className="searchTerm"  onChange={(e)=>{
             setWord(e.target.value)
         }}/>
-        <input type="submit" value="Search" />
+        <input type="submit" value="Search" className="searchButton"/>
+        </div>
     </form>
   )
 }

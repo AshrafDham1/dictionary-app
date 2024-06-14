@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import SearchForm from './components/searchForm';
 import Result from './components/Result';
@@ -9,9 +8,11 @@ function App() {
   const [wordInfo, setWordInfo] = useState(null)
   return (
     <>
+    <div className='container'>
     <SearchForm setWordInfo={setWordInfo}/>
-    {/* {wordInfo && (<Result wordInfo={wordInfo}/>)} */}
     {!wordInfo ? "" : wordInfo.title ? (<Error/>) :(<Result meanings={wordInfo[0].meanings} word={wordInfo[0].word}/>) }
+    </div>
+   
     </>
   );
 }

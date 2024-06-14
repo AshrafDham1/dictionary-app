@@ -8,12 +8,12 @@ function Result({word , meanings}) {
   }
   return (
     <div>
-      <h1>{word}<img src={audio} onClick={handleClick}></img></h1>
-      <p>Parts of speech:</p>
+      <h1 className='titlecontainer'>{word}<img src={audio} onClick={handleClick} className='img' alt='sound'></img></h1>
+      <p className='title'>Parts of speech:</p>
       <p>{meanings[0].partOfSpeech}</p>
-      <p>Definition:</p>
+      <p className='title'>Definition:</p>
       <p>{meanings[0].definitions[0].definition}</p>
-      {meanings[0].definitions[0].example && (<><p>Example:</p><p>{meanings[0].definitions[0].example}</p></>)}
+      {meanings[0].definitions[0].example && (<><p className='title'>Example:</p><p>{meanings[0].definitions[0].example}</p></>)}
     </div>
   )
 }
